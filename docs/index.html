@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tom Store Payment Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <div class="container" id="payment-page">
+    <div class="profile">
+      <img src="https://files.catbox.moe/y5mmu8.jpg" alt="Foto Profil">
+      <h2>ẉ.ceo/tomstore</h2>
+      <p>Hi👋 I'm Tom Store.
+      This is my payment website !</p>
+      <h3>My contact :</h3>
+      <p>wa.me/62895379766665 | t.me/younosyw</p>
+    </div>
+
+    <!-- Tombol Pilih Payment -->
+    <div class="payment-options">
+      <button class="pay-btn" onclick="showMethod('dana')">DANA</button>
+      <button class="pay-btn" onclick="showMethod('gopay')">GOPAY</button>
+      <button class="pay-btn" onclick="showMethod('qris1')">QRIS MC</button>
+      <button class="pay-btn" onclick="showMethod('qris2')">QRIS BUYER</button>
+    </div>
+
+    <!-- Detail pembayaran (awal tersembunyi) -->
+    <div class="payment-method" id="dana" style="display:none;">
+      <h3>DANA</h3>
+      <div class="number-box" id="dana-number">0895379766665</div>
+      <button class="copy-btn" onclick="copyText('dana-number')">Salin Nomor Dana</button>
+    </div>
+
+    <div class="payment-method" id="gopay" style="display:none;">
+      <h3>GOPAY</h3>
+      <div class="number-box" id="gopay-number">0895379766665</div>
+      <button class="copy-btn" onclick="copyText('gopay-number')">Salin Nomor Gopay</button>
+    </div>
+
+<div class="payment-method" id="qris1" style="display:none; text-align:center;">
+  <h3>QRIS MC</h3>
+  <div class="number-box">Scan QRIS di bawah ini:</div>
+  <img src="https://files.catbox.moe/9iszal.jpg" 
+       alt="QRIS" 
+       style="width:200px; margin-top:10px; border:1px solid #fff; border-radius:10px;">
+  <p style="margin-top:10px;">Gunakan aplikasi pembayaran yang mendukung QRIS.</p>
+</div>
+
+<div class="payment-method" id="qris2" style="display:none; text-align:center;">
+  <h3>QRIS BUYER</h3>
+  <div class="number-box">Scan QRIS di bawah ini:</div>
+  <img src="https://autoresbot.com/tmp_files/b8093ddd-5790-48c0-88b3-ff592a27b62f.jpg" 
+       alt="QRIS" 
+       style="width:200px; margin-top:10px; border:1px solid #fff; border-radius:10px;">
+  <p style="margin-top:10px;">Gunakan aplikasi pembayaran yang mendukung QRIS.</p>
+</div>
+
+
+    <div class="footer-note">
+      Kirim bukti transfer ke WhatsApp/Telegram untuk konfirmasi.
+    </div>
+  </div>
+
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor berhasil disalin: " + text);
+      });
+    }
+
+    function showMethod(method) {
+      document.querySelectorAll(".payment-method").forEach(el => el.style.display = "none");
+      document.getElementById(method).style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
